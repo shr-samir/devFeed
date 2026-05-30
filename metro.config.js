@@ -1,8 +1,9 @@
-const { getDefaultConfig } = require('expo/metro-config')
-const path = require('path')
+const { getDefaultConfig } = require('expo/metro-config');
 
-const config = getDefaultConfig(__dirname)
+const path = require('path');
 
-config.watchFolders = [path.resolve(__dirname, 'src')]
+const config = getDefaultConfig(__dirname);
 
-module.exports = config
+config.watchFolders = [path.resolve(__dirname, 'src')];
+
+module.exports = config;

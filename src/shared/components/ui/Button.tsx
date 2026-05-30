@@ -4,7 +4,6 @@ import {
 	TouchableOpacity,
 	type ViewStyle,
 } from "react-native";
-import { Text } from "@/shared/components/ui/Text";
 import { colors, radius, spacing } from "@/shared/constants/theme";
 
 type Variant = "primary" | "secondary" | "danger" | "ghost";
@@ -14,16 +13,16 @@ type Props = {
 	loading?: boolean;
 	disabled?: boolean;
 	onPress: () => void;
-	label: string;
+	children?: React.ReactNode;
 	style?: ViewStyle;
 };
 
-export function Button({
+export default function Button({
 	variant = "primary",
 	loading,
 	disabled,
 	onPress,
-	label,
+	children,
 	style,
 }: Props) {
 	return (
@@ -37,13 +36,7 @@ export function Button({
 				style,
 			]}
 		>
-			{loading ? (
-				<ActivityIndicator color={colors.text.primary} />
-			) : (
-				<Text variant="body" style={styles.label}>
-					{label}
-				</Text>
-			)}
+			{loading ? <ActivityIndicator color={colors.text.primary} /> : children}
 		</TouchableOpacity>
 	);
 }
