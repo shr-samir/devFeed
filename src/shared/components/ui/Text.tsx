@@ -8,10 +8,20 @@ type Props = {
 	variant?: Variant;
 	children: React.ReactNode;
 	style?: TextStyle;
+	onPress?: () => void;
 };
 
-export function Text({ variant = "body", children, style }: Props) {
-	return <RNText style={[styles[variant], style]}>{children}</RNText>;
+export default function Text({
+	variant = "body",
+	children,
+	style,
+	onPress,
+}: Props) {
+	return (
+		<RNText style={[styles[variant], style]} onPress={onPress}>
+			{children}
+		</RNText>
+	);
 }
 
 const styles: Record<Variant, TextStyle> = {
